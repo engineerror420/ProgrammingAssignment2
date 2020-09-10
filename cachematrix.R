@@ -17,7 +17,7 @@ makeCacheMatrix <- function(x = matrix()) {
     
   }
   get <- function() x
-  setinverse <- function(solve) m<<-solve
+  setinverse <- function(inverse) m<<-inverse
   getinverse <- function() m
   list(set=set,get=get,setinverse=setinverse,getinverse=getinverse)
 }
@@ -39,7 +39,7 @@ if(!is.null(m)) {
   
   }
   data<-x$get
-  m<-mean(data, ...)
+  m<-solve(data, ...)
   x$setinverse(m)
   m
 
